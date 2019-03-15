@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Fever Check";
+}
+
+<h1>Fever Check</h1>
+
+<form asp-controller="FeverCheck" asp-action="Index" method="post">
+    <p>Select Celsius or Fahrenheit to check</p>
+    <input type="radio" name="celciusfahrenheit" value="celcius" checked> Celcius<br>
+    <input type="radio" name="celciusfahrenheit" value="fahrenheit"> Fahrenheit<br><br />
+    <input name="temperature" type="number" min="10" max="130" placeholder="Temp" /><br /><br />
+    <button>Check</button>
+</form>
+
+@if (ViewBag.Index != null)
+{
+    <h3>Result</h3>
+    <p>@ViewBag.Index</p>
+    <p>@Html.ActionLink("Check again", "Index", "FeverCheck")</p>
+}

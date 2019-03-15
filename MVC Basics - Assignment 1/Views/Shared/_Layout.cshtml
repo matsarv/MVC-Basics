@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/js/site.js"></script>
+</head>
+<body onload="showDate()">
+    <header class="clearfix">
+        @*<h1>Lexikon</h1>*@
+        @*<a href="/"><img height="30" src="~/images/logo.gif" alt="Logo"></a>*@
+        @*<a asp-controller="Home" asp-action="Index"><img height="30" src="~/images/logo.gif" alt="Logo"></a>*@
+        <img height="30" src="~/img/logo.gif" alt="Logo">
+
+        <nav>
+            <ul>
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Projects">Projects</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Contact">Contact</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="About">About</a>
+                </li>
+                <li>
+                    @Html.ActionLink("Fever Check", "Index", "FeverCheck")
+                </li>
+                <li>
+                    @Html.ActionLink("Guessing Game", "Index", "GuessingGame")
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div id="body">
+        <div id="bodyArea">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>
+        <div id="footerText"></div>
+    </footer>
+
+</body>
+</html>
