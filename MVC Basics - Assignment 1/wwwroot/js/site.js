@@ -29,3 +29,4 @@ function showDate() {
     document.getElementById('footerText').innerHTML = "Copyright &copy; " + year + "-" + month + "-" + daym + " Nisse Nilson"
 
 }
+

@@ -31,6 +31,7 @@ namespace MVC_Basics___Assignment_1.Models
                 else
                 {
                     stringResult = "Your guess is above the number.";
+
                 }
                 guess = "Sorry! " + stringResult; // + " (" + rndNumber + ")";
             }

@@ -16,13 +16,14 @@ namespace MVC_Basics___Assignment_1.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            int getRndNumber = GuessingGame.RandomNumber();
+            int rndNumber = GuessingGame.RandomNumber();
+            ViewBag.Rnd = rndNumber;
 
-            //HttpContext.Session.Clear();
+            HttpContext.Session.Clear();
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyRndNumber)))
             {
-                HttpContext.Session.SetInt32(SessionKeyRndNumber, getRndNumber);
+                HttpContext.Session.SetInt32(SessionKeyRndNumber,rndNumber);
                 HttpContext.Session.SetString(SessionKeyTryNumber, "");
             }
 
@@ -30,7 +31,7 @@ namespace MVC_Basics___Assignment_1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int guessNumber)
+        public IActionResult Index(int guessNumber, string autoRestart)
         {
             var rndNumber = HttpContext.Session.GetInt32(SessionKeyRndNumber);
             var tryNumbers = HttpContext.Session.GetString(SessionKeyTryNumber);
@@ -44,22 +45,26 @@ namespace MVC_Basics___Assignment_1.Controllers
 
             GuessingGame guessingGame = new GuessingGame();
 
-            string guessResult = guessingGame.Guess(guessNumber, (int) rndNumber);
+            string guessResult = guessingGame.Guess(guessNumber, (int)rndNumber);
 
             if (guessResult == "Congratulation!")
             {
-                tryingNumbers = "The number was " + rndNumber +  " and your guessing numbers are: " + tryNumbers;
-                startAgain = "You can now continue guessing on a new number.";
+                tryingNumbers = "The number was " + rndNumber + " and your guessing numbers are: " + tryNumbers;
 
-                int getRndNumber = GuessingGame.RandomNumber();
+                // Button when finish guessing
+                ViewBag.Restart = "Show";
 
-                HttpContext.Session.SetInt32(SessionKeyRndNumber, getRndNumber);
-                HttpContext.Session.SetString(SessionKeyTryNumber, "");
+                // Autorestart when finish guessing
+                //startAgain = "You can now continue guessing on a new number.";
+                //int getRndNumber = GuessingGame.RandomNumber();
+                //HttpContext.Session.SetInt32(SessionKeyRndNumber, getRndNumber);
+                //HttpContext.Session.SetString(SessionKeyTryNumber, "");
 
+                // Redirect to run HttpGet
                 //return RedirectToAction("Index", "GuessingGame");
             }
 
-            ViewBag.Index = guessResult;
+            ViewBag.Index = guessResult + autoRestart;
             ViewBag.Numbers = tryingNumbers;
             ViewBag.Again = startAgain;
             ViewBag.Rnd = rndNumber;

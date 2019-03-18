@@ -1,14 +1,8 @@
 ﻿
 
 body {
-    /*border-radius: 10px;*/
     line-height: 150%;
     font-family: sans-serif;
-    /*max-width: 960px;*/
-    /*margin: auto;*/
-    /*padding: 80px 0px;*/
-    /*padding-top: 50px;
-    padding-bottom: 20px;*/
     background-color: black;
     color: white;
 }
@@ -17,14 +11,13 @@ header {
     background-color: black;
 }
 
-
-
 nav > ul > li {
     float: left;
     padding: 10px;
     list-style-type: none;
     background-color: black;
 }
+
 nav > ul > li > a {
     color: white;
     text-decoration: underline;
@@ -78,3 +71,32 @@ footer {
     color: #2B1B17;
 }
 
+button {
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 5px;
+    display: block;
+    color: white;
+    background-color: firebrick;
+    text-align: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+#btnFever a {
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 5px;
+    display: block;
+    color: white;
+    background-color: firebrick;
+    text-align: center;
+    padding: 1px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 90px;
+    font-size: 13px;
+}
