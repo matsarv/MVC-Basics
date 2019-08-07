@@ -55,10 +55,10 @@ namespace MVC_Basics___Assignment_1.Controllers
                 ViewBag.Restart = "Show";
 
                 // Autorestart when finish guessing
-                //startAgain = "You can now continue guessing on a new number.";
-                //int getRndNumber = GuessingGame.RandomNumber();
-                //HttpContext.Session.SetInt32(SessionKeyRndNumber, getRndNumber);
-                //HttpContext.Session.SetString(SessionKeyTryNumber, "");
+                startAgain = "You can now continue guessing on a new number.";
+                int getRndNumber = GuessingGame.RandomNumber();
+                HttpContext.Session.SetInt32(SessionKeyRndNumber, getRndNumber);
+                HttpContext.Session.SetString(SessionKeyTryNumber, "");
 
                 // Redirect to run HttpGet
                 //return RedirectToAction("Index", "GuessingGame");
